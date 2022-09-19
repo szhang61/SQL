@@ -1,0 +1,46 @@
+--Create a clothing store database
+
+CREATE TABLE Clothing (ID integer primary key, Item_Name text, Category text, Price integer, Inventory integer, Rating real);
+
+INSERT INTO Clothing VALUES 
+(1, 'T-shirts', 'Tops', 30, 40, 5),
+(2, 'Shirts', 'Tops', 25, 40, 4.8),
+(3, 'Pants', 'Bottoms', 35, 30, 4.9),
+(4, 'Jeans', 'Bottoms', 35, 25, 5),
+(5, 'Shorts', 'Bottoms', 25, 20, 4.7),
+(6, 'Skirts', 'Bottoms', 25, 30, 4.6),
+(7, 'Jackets', 'Outerwear', 50, 30, 4.9),
+(8, 'Cardigans', 'Tops', 30, 30, 5),
+(9, 'Sweaters', 'Tops', 40, 20, 4.6),
+(10, 'Sweat_pants', 'Bottoms', 30, 35, 4.8),
+(11, 'Sneakers', 'Shoes', 60, 40, 4.9),
+(12, 'Sandals', 'Shoes', 30, 35, 5),
+(13, 'Earrings', 'Accesories', 15, 40, 4.9),
+(14, 'Rings', 'Accesories', 15, 30, 4.6),
+(15, 'Crop_tops', 'Tops', 30, 40, 5),
+(16, 'Coats', 'Outerwear', 65, 20, 5),
+(17, 'Necklaces', 'Accesories', 15, 20, 4.7);
+
+--display of the database ordered by price.
+SELECT * FROM Clothing
+ORDER BY price asc;
+
+--display of the items ordered by rating.
+SELECT Item_Name, Rating FROM Clothing 
+ORDER BY Rating Desc;
+
+--what is the most expensive item?
+SELECT Item_Name, Max(Price) as Most_expensive_item FROM Clothing;
+
+--what are the most 5 popular items?
+SELECT Item_Name, Price, Rating FROM Clothing
+ORDER BY Rating desc
+LIMIT 5;
+
+--what is the total inventory?
+SELECT SUM(Inventory) as Total_inventory FROM Clothing;
+
+--display of the items ordered by inventory. 
+SELECT Item_Name, Inventory FROM Clothing
+ORDER BY Inventory Asc;
+
